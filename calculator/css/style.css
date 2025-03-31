@@ -2,7 +2,7 @@
     color: white;
     font-size: 16px;
     font-family: 'Orbitron', sans-serif;
-    background-color: rgb(76, 76, 76);
+    background-color: rgb(43, 42, 43);
     width: 50px;
     height: 50px;
     margin-top: 4px;
@@ -13,11 +13,20 @@
 .operators {
     color: white;
     font-size: 20px;
-    background-color: rgb(76, 76, 76);
+    background-color: rgb(241, 163, 60);
     width: 50px;
     height: 50px;
     margin-top: 4px;
     border: none;
     border-radius: 50px;
     box-sizing: border-box;
+}
+
+.input {
+    background-color: black;
+    border: none;
+    height: 20px;
+    width: 162px;
+    color: white;
+    font-size: 16px;
 }

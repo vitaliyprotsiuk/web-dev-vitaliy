@@ -7,30 +7,35 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body style="background-color: black;">
+    <div>
+        <input type="text" class="input" id="results">
+    </div>
     <div id="buttons">
         <div>
-            <button class="numbers">7</button>
-            <button class="numbers">8</button>
-            <button class="numbers">9</button>
-            <button class="operators">/</button>
+            <button class="numbers" onclick="addItemToRes('7')">7</button>
+            <button class="numbers" onclick="addItemToRes('8')">8</button>
+            <button class="numbers" onclick="addItemToRes('9')"> 9</button>
+            <button class="operators" onclick="addOperator('/')">/</button>
         </div>
         <div>
-            <button class="numbers">4</button>
-            <button class="numbers">5</button>
-            <button class="numbers">6</button>
-            <button class="operators">×</button>
+            <button class="numbers" onclick="addItemToRes('4')">4</button>
+            <button class="numbers" onclick="addItemToRes('5')">5</button>
+            <button class="numbers" onclick="addItemToRes('6')">6</button>
+            <button class="operators" onclick="addOperator('*')">×</button>
         </div>
         <div>
-            <button class="numbers">1</button>
-            <button class="numbers">2</button>
-            <button class="numbers">3</button>
-            <button class="operators">-</button>
+            <button class="numbers" onclick="addItemToRes('1')">1</button>
+            <button class="numbers" onclick="addItemToRes('2')">2</button>
+            <button class="numbers" onclick="addItemToRes('3')">3</button>
+            <button class="operators" onclick="addOperator('-')">-</button>
         </div>
-        <div style="width: 162px; display: flex; margin-left: 56px;">
-            <button class="numbers">0</button>
-            <button class="operators" style="margin-left: 4px;">=</button>
-            <button class="operators" style="margin-left: 4px;">+</button>
+        <div>
+            <button class="numbers" style="background-color: rgb(93, 92, 95);" onclick="clearResults()">AC</button>
+            <button class="numbers" onclick="addItemToRes('0')">0</button>
+            <button class="operators" onclick="equalTo()">=</button>
+            <button class="operators" onclick="addOperator('+')">+</button>
         </div>
     </div>
+    <script src="scripts/index.js"></script>
 </body>
 </html>
