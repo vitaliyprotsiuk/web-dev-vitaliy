@@ -1,11 +1,8 @@
-const usd = 840;
-const uah = 980;
-const euro = 978;
 const currencyUrl = "https://api.monobank.ua/bank/currency";
 
 
 
-function addDivResult(text, divName) {
+export function addDivResult(text, divName) {
     const divRes = document.createElement("div");
     divRes.classList.add("currency");
     const textContent = document.createTextNode(text);
@@ -14,14 +11,14 @@ function addDivResult(text, divName) {
     divAllResults.appendChild(divRes);
 };
 
-function addInfoDiv(name) {
-    divAllResults = document.getElementById(`${name}-info`);
+export function addInfoDiv(name) {
+    const divAllResults = document.getElementById(`${name}-info`);
     
     let sign;
     const dict = {
         'usd': '$',
         'euro': '€'
-    }; // going to be bigger
+    }; // will be expanded
 
     sign = dict[name];
 
@@ -46,11 +43,13 @@ function addInfoDiv(name) {
 
     infoDiv.classList.add('info-div');
 
+    console.log(infoDiv.classList); // Перевіряємо, які класи є
+
     divAllResults.prepend(infoDiv);
 };
 
 
-function findCurrency(data, currencyA, currencyB) {
+export function findCurrency(data, currencyA, currencyB) {
     const founded = data.find(element => {
         if (element.currencyCodeA == currencyA && element.currencyCodeB == currencyB ||
             element.currencyCodeA == currencyB && element.currencyCodeB == currencyA) {
@@ -59,12 +58,12 @@ function findCurrency(data, currencyA, currencyB) {
         return false;
     });
 
-    return founded
+    return founded;
 };
 
 
-function loadCurrency() {
-    fetch(currencyUrl)
+export function loadCurrency() {
+    return fetch(currencyUrl)
     .then(function(response) {
         if (!response.ok) {
             console.error("Запит не успішний");
@@ -72,9 +71,9 @@ function loadCurrency() {
             return;
         }
         return response.json();
-    })
+    })/* 
     .then(function(data) {
-        const usdToUah = findCurrency(data, usd, uah);
+       const usdToUah = findCurrency(data, usd, uah);
         addInfoDiv('usd')
         addDivResult(usdToUah.rateBuy.toFixed(1), 'usd');
         addDivResult(usdToUah.rateSell.toFixed(1), 'usd');
@@ -82,5 +81,7 @@ function loadCurrency() {
         addInfoDiv('euro')
         addDivResult(euroToUah.rateBuy.toFixed(1), 'euro');
         addDivResult(euroToUah.rateSell.toFixed(1), 'euro');
-    });
+
+        return data
+    }); */
 };

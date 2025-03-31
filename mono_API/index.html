@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Курси валют</title>
-    <script src="index.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-<body style="background-color:grey">
-    <div class="button-div"><button class="button" onclick="loadCurrency()">Показати курси</button></div>
-    <div id="usd-info">
-        <div id="usd" class="main-positing"></div>
-    </div>
-    <div id="euro-info">
-        <div id="euro" class="main-positing"></div>
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">Вибрати валюту</button>
+        <div class="dropdown-content">
+            <a href="pages/usd.html">USD - UAH</a>
+            <a href="pages/euro.html">EURO - UAH</a>
+        </div>
     </div>
 </body>
 </html>
