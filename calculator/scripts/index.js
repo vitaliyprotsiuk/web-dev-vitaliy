@@ -1,10 +1,12 @@
 let operator;
 operator = ''
 
+
 function addItemToRes(item) {
     const resInput = document.getElementById('results');
     resInput.value += item;
 };
+
 
 function addOperator(item) {
     const resInput = document.getElementById('results');
@@ -19,48 +21,41 @@ function addOperator(item) {
     operator = item
 };
 
+
 function clearResults() {
     const resInput = document.getElementById('results');
     resInput.value = '';
 };
 
+
 function equalTo() {
-
     const resInput = document.getElementById('results').value;
-    let firstPart = [];
-    let secondPart = [];
-
-    for (let item of resInput) {
-        if (operator == '' ) {
-            firstPart.push(item);
-            continue;
-        };
-
-        if (['*', '/', '+', '-'].includes(item)) {
-            operator = item;
-        };
-
-        if (operator != '') {
-            secondPart.push(item);
-        };
+    
+    const regex = /(\d+)([\+\-\*\/])(\d+)/;
+    const match = resInput.match(regex);
+    
+    if (match) {
+        let firstNum = parseInt(match[1]);
+        let operator = match[2];
+        let secondNum = parseInt(match[3]);
+        
+        let result;
+        if (operator == '-') {
+            result = firstNum - secondNum;
+        } else if (operator == '+') {
+            result = firstNum + secondNum;
+        } else if (operator == '*') {
+            result = firstNum * secondNum;
+        } else if (operator == '/') {
+            if (secondNum === 0) {
+                result = 'Error';
+            } else {
+                result = firstNum / secondNum;
+            }
+        }
+        
+        document.getElementById('results').value = result;
+    } else {
+        document.getElementById('results').value = 'Error';
     }
-
-    let firstNum = parseInt(firstPart.join(''));
-    let secondNum = parseInt(secondPart.join(''));
-
-    let result;
-    if (operator == '-') {
-        result = firstNum - secondNum;
-    };
-    if (operator == '+') {
-        result = firstNum + secondNum;
-    };
-    if (operator == '*') {
-        result = firstNum * secondNum;
-    };
-    if (operator == '/') {
-        result = firstNum / secondNum;
-    };
-
-    document.getElementById('results').value = result;
 }
