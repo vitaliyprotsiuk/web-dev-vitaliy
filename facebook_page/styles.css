@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(28, 28, 29);
+    overflow-x: hidden;
+}
+
+
+.header {
+    background-color: rgb(37, 39, 40);
+    height: 56px;
+    display: flex;
+    border: 2px solid #303232;
+}
+
+.facebook {
+    display: flex;
+    padding: 7px;
+}
+
+.facebook-icon {
+    width: 42px;
+    height: 42px;
+    margin-left: 10px;
+}
+
+.facebook-search {
+    width: 240px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: #333334;
+    margin-top: 7px;
+    color: #B0B3AC;
+    padding-left: 32px;
+    font-weight: 100;
+    margin-right: 30px;
+}
+
+.fb-items {
+    width: 26px;
+    height: 28px;
+    margin-right: 93px;
+}
+
+.games-ico {
+    width: 29px;
+    height: 25px;
+}
+
+.elements {
+    display: flex;
+    margin-left: 185px;
+    margin-top: 13px
+}
+
+.menu-and-account-pos {
+    display: flex;
+    margin-left: 230px;
+}
+
+.menu-and-account {
+    margin-right: 6px;
+    margin-top: 4px;
+    height: 43px;
+    width: 43px;
+}
+
+.main {
+    display: flex;
+}
+
+.offers {
+    display: inline;
+    padding: 18px;
+    width: 320px;
+}
+
+.offer {
+    display: flex;
+    align-items: center;
+    height: 45px;
+}
+
+.offer-icon {
+    width: 29px;
+    height: 28px;
+}
+
+.offer-text {
+    margin-left: 10px;
+    font-family: Calibri, sans-serif;
+    font-size: 16px;
+    font-weight: 550;
+    color: #E5E8EB;
+    line-height: 26px;
+    margin-top: 10px;
+}
+
+.line {
+    border: 1px solid #414244;
+    width: 320px;
+    margin-top: 5px;
+}
+
+.shortcuts-text {
+    font-family: Calibri, sans-serif;
+    padding-top: 15px;
+    font-size: 19px;
+    font-weight: 550;
+    color: #B0B3B8;
+}
