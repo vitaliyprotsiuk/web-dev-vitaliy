@@ -1,4 +1,6 @@
 const APILink = "https://dog.ceo/api/breeds/image/random";
+let URLList = [];
+let currentImgNumber = 0;
 
 const fetchURL = async function() {
     const response = await fetch(APILink);
@@ -12,11 +14,12 @@ const fetchURL = async function() {
     const status = responseJSON.status;
 
     if (status == 'success'){
+        URLList.push(responseJSON.message);
         return responseJSON.message;
     };
 };
 
-const showIMG = async function() {
+const showNextImg = async function() {
     const link = await fetchURL();
 
     if (link) {
@@ -25,12 +28,14 @@ const showIMG = async function() {
             <div class='ramka-7'><img class='ramka-7' src="${link}" alt="dog" height='500' wight='500' style='object-fit: cover;'></div>
         `)
     };
+
+    currentImgNumber++;
 };
 
-showIMG();
+showNextImg();
 
 const changeIMG = async function() {
     $('#main').html('');
 
-    await showIMG();
-}
+    await showNextImg();
+};
