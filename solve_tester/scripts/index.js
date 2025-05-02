@@ -20,7 +20,7 @@ const manageMainDiv = (htmlCode) => {
 };
 
 
-const addExercise = (htmlCode) => {
+const addToExercise = (htmlCode) => {
     $('#exercises').append(`${htmlCode}`);
 };
 
@@ -144,9 +144,16 @@ const checkExercise1 = () => {
         maxExercise = getMaxExercise();
     };
 
-    if (!$('#exercises').length) {
-        manageMainDiv('<div id="exercises" style="display: flex; flex-direction: column;"></div>')
+    if ($('#numOfExercise').val() < 1) {
+        manageMainDiv('<h2>Ви ввели неправильну кількість прикладів!</h2>');
+        return;
     };
+
+    if (!$('#exercises').length) {
+        manageMainDiv("<div id='exercises' class='exercises'></div>")
+    };
+
+    addToExercise('<h2>Приклади</h2>')
 
     for (let i = 0; i < maxExercise; i++) {
         currentExercise++;
@@ -154,7 +161,7 @@ const checkExercise1 = () => {
         showExercise(i);
     };
 
-    addToMainDiv('<button class="continue-btn" onclick="checkAnswer()">Перевірити</button>')
+    addToExercise('<button class="continue-btn" onclick="checkAnswer()">Перевірити</button>')
 };
 
 
@@ -164,7 +171,7 @@ const showExercise = (i) => {
     aNumbers.push(a);
     bNumbers.push(b);
 
-    addExercise(`
+    addToExercise(`
         <div id="showExercise-${i}" class="show-exercise">
                 <div id="mainExercise-${i}" class="main-exercise">
                     <div id="firstNum-${i}" class="numbers">${a}</div>
@@ -235,7 +242,7 @@ window.showChoiceAndNum = showChoiceAndNum;
 $(document).on('keydown', (e) => {
     if (e.key === 'Enter') {
         if ($('#startBtn').length) {
-            showChoice();
+            showChoiceAndNum();
         };
     };
 });
@@ -243,12 +250,12 @@ $(document).on('keydown', (e) => {
 
 $(document).on('keydown', '#optradio', (event) => {
     if (event.key === 'Enter') {
-        getNumOfExercise();
+        checkExercise1();
     };
 });
 
 
-$(document).on('keydown', '#userResult', (event) => {
+$(document).on('keydown', '#exercises', (event) => {
     if (event.key === 'Enter') {
         checkAnswer();
     };
@@ -257,6 +264,6 @@ $(document).on('keydown', '#userResult', (event) => {
 
 $(document).on('keydown', '#numOfExercise', (event) => {
     if (event.key === 'Enter') {
-        checkExercise();
+        checkExercise1();
     };
 });

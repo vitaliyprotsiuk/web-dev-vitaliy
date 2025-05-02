@@ -62,7 +62,6 @@ input[type='radio'] {
 
 .show-exercise {
     display: flex;
-    width: 1920px;
 }
 
 .current-exercise {
@@ -80,7 +79,6 @@ input[type='radio'] {
 
 .main-exercise {
     display: flex;
-    margin-left: 460px;
     align-items: center;
 }
 
@@ -106,4 +104,11 @@ input[type='radio'] {
 .status-icon {
     margin-left: 10px;
     margin-top: 10px;
+}
+
+.exercises {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
